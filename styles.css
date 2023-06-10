@@ -1,0 +1,21 @@
+* {
+  background-color: rgb(247, 199, 140);
+}
+
+.imagen {
+  width: 100%;
+}
+
+.caja {
+  border: solid 1px black;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.central {
+  width: 10%;
+}
