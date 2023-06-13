@@ -2,22 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto VUE Rons</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <title>Vue 3 CDN Example</title>
+    <script src="https://unpkg.com/vue@3.2.22/dist/vue.global.prod.js"></script>
   </head>
 
   <body>
-    <main id="app">
-      <card-component
-        v-for="ron of rons"
-        :img="ron.img"
-        :titulo="ron.titulo"
-        :valor="ron.valor"
-      >
-      </card-component>
-    </main>
-    <script src="./app.js" type="module"></script>
+    <div id="app">
+      <tablita :data="rons" table-class="custom-table"></tablita>
+    </div>
   </body>
 </html>
+<style>
+  body {
+    background-color: black;
+  }
+  .custom-table {
+    color: #ffffff;
+  }
+
+  .custom-table th,
+  .custom-table td {
+    border: solid 1px white;
+    padding: 10px;
+    text-align: left;
+  }
+  img {
+    width: 50px;
+  }
+</style>
+<script src="./app.js" type="module"></script>

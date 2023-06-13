@@ -1,37 +1,45 @@
 import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 import { Rons } from "./Rons.js";
-
-const Card = {
+const Table = {
   props: {
-    titulo: String,
-    id: Number,
-    img: String,
-    valor: Number,
+    data: {
+      type: Array,
+    },
+    tableClass: {
+      type: String,
+    },
   },
-
   template: `
-        <div class="central" align="center">
-            <div class="caja">
-            <img class="imagen" :src="img" :alt="titulo">
-                <p>{{id}}</p>
-                <h3>{{titulo}}</h3>
-                <p>$ {{valor}}</p>
-                <button>Comprar</button>
-            </div>
-        </div>
-    `,
+        <table :class="tableClass">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Img</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in data" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.titulo }}</td>
+              <td>{{ item.valor }}</td>
+              <td>
+              <img :src=item.img  :alt=item.titulo>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      `,
 };
-
-//  app Vue
-
-createApp({
+const app = createApp({
   components: {
-    "card-component": Card,
+    tablita: Table,
   },
-
   data() {
     return {
       rons: Rons,
     };
   },
-}).mount("#app");
+});
+app.mount("#app");
