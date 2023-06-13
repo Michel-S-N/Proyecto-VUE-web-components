@@ -10,7 +10,7 @@ const Table = {
     },
   },
   template: `
-        <table :class="tableClass">
+        <table :class="tableClass" v-for="item in data" :key="item.id">
           <thead>
             <tr>
               <th>ID</th>
@@ -20,7 +20,7 @@ const Table = {
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in data" :key="item.id">
+            <tr >
               <td>{{ item.id }}</td>
               <td>{{ item.titulo }}</td>
               <td>{{ item.valor }}</td>
